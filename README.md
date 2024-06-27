@@ -2,20 +2,22 @@
 <h1>Active-Directory-Lab</h1>
 
 <h2>Description</h2>
-Project consists of a simple PowerShell script that walks the user through "zeroing out" (wiping) any drives that are connected to the system. The utility allows you to select the target disk and choose the number of passes that are performed. The PowerShell script will configure a diskpart script file based on the user's selections and then launch Diskpart to perform the disk sanitization.
+This project illustrates how I created an Active Directory home-lab environment with 1000 users on a virtual machine. I designed a mini corporate network, where the domain controller resides on the external network and the client system on the internal network.
 <br />
 
 
 <h2>Languages and Utilities Used</h2>
 
 - <b>PowerShell</b> 
-- <b>Diskpart</b>
+
 
 <h2>Environments Used </h2>
 
-- <b>Windows 10</b> (21H2)
+- <b>Oracle Virtual Box</b>
+- <b>Windows Server 2019</b>
+- <b>Windows 10 Client</b>
 
-<h2>Program walk-through:</h2>
+<h2>Project walk-through:</h2>
 
 <p align="center">
 Launch the utility: <br/>
