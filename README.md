@@ -20,8 +20,8 @@ In this lab, I created an Active Directory home-lab environment with 1000 users 
 <h2>Project walk-through:</h2>
 
 <p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br>Overview: Network Infrastructure <br/>
+<img src="https://i.imgur.com/2fyEvRb.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 Select the disk:  <br/>
