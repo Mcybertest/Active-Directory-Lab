@@ -11,7 +11,6 @@ In this lab, I created an Active Directory home-lab environment with 1000 users 
 - <b>Oracle Virtual Box</b>
 - <b>PowerShell</b> 
 
-
 <h2>Environments Used </h2>
 
 - <b>Windows Server 2019</b>
