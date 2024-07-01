@@ -23,29 +23,61 @@ In this lab, I created an Active Directory home-lab environment with 1000 users 
 <img src="https://i.imgur.com/2fyEvRb.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Select the disk:  <br/>
+Create a Virtual Machine (VM) for Domain Controller  <br/>
 <img src="https://i.imgur.com/PMcLnnq.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Configure 2 network adapters, NAT & Internal <br/>
+<img src="https://i.imgur.com/w7oLXBi.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Mount & Install Windows Server 2019 on the DC VM <br/>
+<img src="https://i.imgur.com/yX8YKaZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+From left to right of the image, the ‘Internal network’ had an APIPA address of 169.254.17.146
+I assigned the following to the internal network
+- IP address of 172.16.0.1
+- Subnet mask 255.255.255.0
+- Default Gateway <empty> 
+- DNS - 127.0.0.1   <br/>
+<img src="https://i.imgur.com/VoTVYK3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Install, configure Active Directory Domain Services, and create a dedicated admin account. 
+  <br/>
+<img src="https://i.imgur.com/szGU6Cz.png" height="80%" width="80%" alt="Active Directory Installation"/>
 <br />
 <br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+ Install and configure NAT & Routing, so Win 10 client residing on the private network can access the internet through the Domain Controller  <br/>
+<img src="https://i.imgur.com/sViKZv2.png" height="80%" width="80%" alt="NAT and routing configuration"/>
+<br />
+<br />
+<img src="https://i.imgur.com/ngDe19R.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+ <br />
+<img src="https://i.imgur.com/HTEs7Gd.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+
+ 
+ 
+ <br />
+ Set up DHCP, add scope information, so Win 10 Client can receive an IP address. 
+  <br/>
+<img src="https://i.imgur.com/GFTfT2K.png" height="80%" width="80%" alt="Active Directory Installation"/>
+<br />
+<br />
+ xxx <br/>
+<img src="https://i.imgur.com/sViKZv2.png" height="80%" width="80%" alt="NAT and routing configuration"/>
+<br />
+<br />
+<img src="https://i.imgur.com/ngDe19R.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+ <br />
+<img src="https://i.imgur.com/HTEs7Gd.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+
+
 
 <!--
  ```diff
