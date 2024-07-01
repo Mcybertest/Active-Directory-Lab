@@ -50,11 +50,11 @@ Install, configure Active Directory Domain Services, and create a dedicated admi
 <br />
 <br />
  Install and configure NAT & Routing, so Win 10 client residing on the private network can access the internet through the Domain Controller  
-  <br/>
+  <br />
 <img src="https://i.imgur.com/lm5n7oZ.png" height="80%" width="80%" alt="NAT and routing configuration"/>
 <br />
   <br />
-Set up DHCP, add scope information, so Win 10 Client can receive an IP address.
+Set up DHCP, add scope information, so Win 10 Client can receive an IP address
   <br/>
 <br />
 <img src="https://i.imgur.com/JBym9c0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
