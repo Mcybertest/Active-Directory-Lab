@@ -2,7 +2,8 @@
 <h1>Active-Directory-Lab</h1>
 
 <h2>Description</h2>
-In this lab, I created an Active Directory home-lab environment with 1000 users on a virtual machine. I designed a mini corporate network, where the domain controller resides on the external network and the client system on the internal network.
+
+In this lab, I set up an Active Directory home-lab environment with over 1,000 users. It simulates a corporate network where client systems communicate within a private network. To access the internet, they must go through an external system (Domain Controller in this project).
 <br />
 
 
@@ -15,11 +16,12 @@ In this lab, I created an Active Directory home-lab environment with 1000 users 
 
 - <b>Windows Server 2019</b>
 - <b>Windows 10 Client</b>
+- <b>2 Virtual Machines</b>
 
-<h2>Project walk-through:</h2>
+<h2>Project walk-through</h2>
 
 <p align="center">
-<br>Overview: Network Infrastructure <br/>
+<br> We aim to simulate this network infrastructure <br/>
 <img src="https://i.imgur.com/2fyEvRb.png" height="80%" width="80%" alt="Network infrastructure diagram"/>
 <br />
 <br />
@@ -27,33 +29,31 @@ Create a Virtual Machine (VM) for Domain Controller  <br/>
 <img src="https://i.imgur.com/PMcLnnq.png" height="80%" width="80%" alt="Create VM"/>
 <br />
 <br />
-Configure 2 network adapters, NAT & Internal <br/>
+Configure network adapters 1 and 2 to use NAT (Network Address Translation) & Internal, respectively <br/>
 <img src="https://i.imgur.com/JlQMoa9.png" height="80%" width="80%" alt="network adapters"/>
 <br />
 <br />
-Mount & Install Windows Server 2019 on the DC VM <br/>
+Mount & Install Windows Server 2019 on the Domain Controller's VM <br/>
 <img src="https://i.imgur.com/gs9kDks.png" height="80%" width="80%" alt="install srv2019"/>
 <br />
 <br />
-Assign the following to the internal network
-- IP address of 172.16.0.1
-- Subnet mask 255.255.255.0
-- Default Gateway <empty> 
-- DNS - 127.0.0.1   <br/>
+<p align="center">
+  I replaced the APIPA address 169.254.17.146 with the following scope, for the internal network
+- <b><i>IP address of 172.16.0.1 / Subnet mask 255.255.255.0 / Default Gateway (empty) / DNS - 127.0.0.1 </b></i>   <br/>
 <img src="https://i.imgur.com/VoTVYK3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Install, configure Active Directory Domain Services, and create a dedicated admin account. 
+First, install and configure Active Directory Domain Services, and then create a dedicated admin account 
   <br/>
 <img src="https://i.imgur.com/szGU6Cz.png" height="80%" width="80%" alt="Active Directory Installation"/>
 <br />
 <br />
- Install and configure NAT & Routing, so Win 10 client on the private network can access the internet through the Domain Controller  
+ Install and configure NAT and routing so that the Windows 10 client on the private network can access the internet through the Domain Controller  
   <br />
 <img src="https://i.imgur.com/lm5n7oZ.png" height="80%" width="80%" alt="NAT and routing configuration"/>
 <br />
   <br />
-Set up DHCP, add scope information, so Win 10 Client can receive an IP address
+Set up DHCP and add scope information so that the Windows 10 client can receive an IP address
   <br />
 <br />
 <img src="https://i.imgur.com/JBym9c0.png" height="80%" width="80%" alt="set dhcp scope"/>
@@ -65,23 +65,22 @@ Add users to Active Directory using a .ps1 script
 <img src="https://i.imgur.com/uLYhb7S.png" height="80%" width="80%" alt="add users"/>
 <br /> 
   <br />
-Active directory u
-  sers are created
+Active directory users are created
   <br/>
  <br />
 <img src="https://i.imgur.com/xPRysyJ.png" height="80%" width="80%" alt="created user"/>
 <br /> 
 <br />
-Create second VM for our Win 10 client, network adapter is set to connect to the internal network
+Create a second VM for our Windows 10 client (Client 1), its network adapter is set to connect to the internal network
   <br/>
 <img src="https://i.imgur.com/GfwHrGN.png" height="80%" width="80%" alt="Active Directory Installation"/>
 <br />
 <br />
-Testing for network connectivity, I realised I forgot to add the DC router’s IP address on the DHCP, hence no default gateway, so let's fix that
+While testing network connectivity, I realized that I forgot to add the DC router’s IP address to Client1’s DHCP configuration. As a result, there was no default gateway. Let’s fix that
   <br/>
 <img src="https://i.imgur.com/qzwW3gG.png" height="80%" width="80%" alt="Active Directory Installation"/>
 <br />
-Issue rectified, using the ping command to confirm that everything works 
+I have rectified the issue and am now using the ping command to confirm that everything works 
   <br/>
 <img src="https://i.imgur.com/buJcmCT.png" height="80%" width="80%" alt="Active Directory Installation"/>
 <br />
@@ -96,7 +95,7 @@ Client1 is configured correctly
   <br/>
 <img src="https://i.imgur.com/i0a7Cy5.png" height="80%" width="80%" alt="Active Directory Installation"/>
 <br />
-Then, we login with one of the random users created with the .ps1 script 
+We can log in using one of the random users created with the .ps1 script 
   <br/>
 <img src="https://i.imgur.com/wRHIAt2.png" height="80%" width="80%" alt="Active Directory Installation"/>
 <br />
