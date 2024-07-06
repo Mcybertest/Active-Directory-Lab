@@ -1,5 +1,5 @@
 
-<h1>Active Directory Set Up - Home Lab</h1>
+<h1>Active Directory - Home Lab</h1>
 
 <h2>Description</h2>
 
