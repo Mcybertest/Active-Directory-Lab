@@ -56,7 +56,7 @@ First, install and configure Active Directory Domain Services, and then create a
 Set up DHCP and add scope information so that the Windows 10 client can receive an IP address
   <br />
 <br />
-<img src="https://i.imgur.com/JBym9c0.png" height="80%" width="80%" alt="set dhcp scope"/>
+<img src="https://i.imgur.com/MpduPjd.png" height="80%" width="80%" alt="set dhcp scope"/>
 <br />
    <br />
 Add users to Active Directory using a .ps1 script
@@ -73,31 +73,31 @@ Active directory users are created
 <br />
 Create a second VM for our Windows 10 client (Client 1), its network adapter is set to connect to the internal network
   <br/>
-<img src="https://i.imgur.com/GfwHrGN.png" height="80%" width="80%" alt="Active Directory Installation"/>
+<img src="https://i.imgur.com/GfwHrGN.png" height="80%" width="80%" alt="create second vm"/>
 <br />
 <br />
 While testing network connectivity, I realized that I forgot to add the DC router’s IP address to Client1’s DHCP configuration. As a result, there was no default gateway. Let’s fix that
   <br/>
-<img src="https://i.imgur.com/qzwW3gG.png" height="80%" width="80%" alt="Active Directory Installation"/>
+<img src="https://i.imgur.com/qzwW3gG.png" height="80%" width="80%" alt="network connectivity"/>
 <br />
-I have rectified the issue and am now using the ping command to confirm that everything works 
+I rectified the issue and am now using the ping command to confirm that everything works 
   <br/>
-<img src="https://i.imgur.com/buJcmCT.png" height="80%" width="80%" alt="Active Directory Installation"/>
+<img src="https://i.imgur.com/buJcmCT.png" height="80%" width="80%" alt="rectified network issue"/>
 <br />
-  <img src="https://i.imgur.com/48lvxGs.png" height="80%" width="80%" alt="Active Directory Installation"/>
+  <img src="https://i.imgur.com/48lvxGs.png" height="80%" width="80%" alt="network issue rectified"/>
 <br />
  Connect Client1 to the Domain
   <br/>
-<img src="https://i.imgur.com/bqHtpRR.png" height="80%" width="80%" alt="Active Directory Installation"/>
+<img src="https://i.imgur.com/bqHtpRR.png" height="80%" width="80%" alt="connect client 1"/>
 <br />
 <br />
 Client1 is configured correctly 
   <br/>
-<img src="https://i.imgur.com/i0a7Cy5.png" height="80%" width="80%" alt="Active Directory Installation"/>
+<img src="https://i.imgur.com/i0a7Cy5.png" height="80%" width="80%" alt="client1 configured"/>
 <br />
 We can log in using one of the random users created with the .ps1 script 
   <br/>
-<img src="https://i.imgur.com/wRHIAt2.png" height="80%" width="80%" alt="Active Directory Installation"/>
+<img src="https://i.imgur.com/bJAtKPL.png" height="80%" width="80%" alt="new user sign in"/>
 <br />
 
 <!--
