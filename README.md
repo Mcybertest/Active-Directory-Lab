@@ -3,7 +3,7 @@
 
 <h2>Description</h2>
 
-In this lab, I set up an Active Directory home-lab environment with over 1,000 users. It simulates a corporate network where client systems communicate within a private network. To access the internet, they must go through an external system (Domain Controller in this project).
+In this lab, I set up an Active Directory home-lab environment with over 1,000 users on a simulated corporate network. 
 <br />
 
 
