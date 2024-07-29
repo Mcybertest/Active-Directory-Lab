@@ -40,7 +40,7 @@ Mount & Install Windows Server 2019 on the Domain Controller's VM <br/>
 <p align="center">
   I replaced the APIPA address 169.254.17.146 with the following scope, for the internal network
 - <b><i>IP address of 172.16.0.1 / Subnet mask 255.255.255.0 / Default Gateway (empty) / DNS - 127.0.0.1 </b></i>   <br/>
-<img src="https://i.imgur.com/VoTVYK3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.postimg.cc/ncwTBDQh/Config-Internal-network.png" height="80%" width="80%" alt="Replaces APIPA"/>
 <br />
 <br />
 First, install and configure Active Directory Domain Services, and then create a dedicated admin account 
