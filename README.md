@@ -3,20 +3,18 @@
 
 <h2>Description</h2>
 
-In this lab, I set up an Active Directory home-lab environment with over 1,000 users on a simulated corporate network. 
+In this lab, I created an Active Directory home-lab environment with 1,000+ users on a simulated corporate network. 
 <br />
 
 
-<h2>Languages and Utilities Used</h2>
+<h2>Prerequisites</h2>
 
-- <b>Oracle Virtual Box</b>
-- <b>PowerShell</b> 
+I used the Oracle Virtual Box to power 2 separate virtual machines 
+- <b>Windows Server 2019 for the Domain Controller VM </b>
+- <b>Windows 10  for the client VM</b>
+- <b>A Powerscript script</b>
+- <b>Basic Powerscript commands</b> 
 
-<h2>Environments Used </h2>
-
-- <b>Windows Server 2019</b>
-- <b>Windows 10 Client</b>
-- <b>2 Virtual Machines</b>
 
 <h2>Project walk-through</h2>
 
