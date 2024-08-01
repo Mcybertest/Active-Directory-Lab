@@ -42,52 +42,76 @@ Step 1 - Differentiate between the Network Adapters (network icon on the bottom 
 <br><i>Subnet mask - 255.255.255.0</i><br />
 <br><i>Default gateway - 0</i><br />
 <br><I> DNS - 172.16.0.1</i><br />
-
 <br>Alternatively, the loopback address 127.0.0.1 can be assigned to DNS but I used the IP address instead<br />
 <img src="https://i.postimg.cc/zXCwj7WX/Adapter-configuration.png" height="80%" width="80%" alt="Replaces APIPA"/>
 <br />
 <br />
-First, install and configure Active Directory Domain Services, and then create a dedicated admin account 
+Step 2 - Add Active Directory<br />
+<br>Add a server role - install Active Directory<br />
+<br>During the post-deployment configuration, add a new forest and the FQDN ‘mydomain.com’ as the root domain name
   <br/>
-<img src="https://i.imgur.com/szGU6Cz.png" height="80%" width="80%" alt="Active Directory Installation"/>
+  <br> Configure, restart the machine and add a dedicated admin account<br />
+<img src="https://i.postimg.cc/JzdscHTz/10-Add-a-forest-restart.png" height="80%" width="80%" alt="Active Directory Installation"/>
 <br />
 <br />
- Install and configure NAT and routing so that the Windows 10 client on the private network can access the internet through the Domain Controller  
+Step 3 - Install RAS/NAT <br />
+<br>This will allow the Client system to remain on the private network but access the internet through the domain controller
   <br />
-<img src="https://i.imgur.com/lm5n7oZ.png" height="80%" width="80%" alt="NAT and routing configuration"/>
+<img src="https://i.postimg.cc/cLJWdYbL/24-tool-RAS.png" height="80%" width="80%" alt="NAT and routing configuration"/>
 <br />
   <br />
-Set up DHCP and add scope information so that the Windows 10 client can receive an IP address
+Select the Adapter name “Internet” for routing
   <br />
 <br />
-<img src="https://i.imgur.com/MpduPjd.png" height="80%" width="80%" alt="set dhcp scope"/>
+<img src="https://i.postimg.cc/dttpCFmW/select-internet-adapter-routing.png" height="80%" width="80%" alt="select adapter"/>
 <br />
-   <br />
-Add users to Active Directory using a .ps1 script
-  <br/>
+<br />
+<u>Step 4</u> - Set up the DHCP Server<br />
+<br>This will allow client systems on the private network to receive IP addresses<br />
+<br><i>Add DHCP server role and configure with the following scope</i><br />
+<br><i>Set an IP range: 172.16.0.100 - 200</i><br />
+<br><i>Subnet mask:   255.255.255.0</i><br />
+<br><i>No exclusions</i><br />
+<br><i>Lease:   8 days</i><br />
+<br><i>Router:	172.16.0.1 (the internal NIC’s IP)</i><br />
+
+<br>Authorise DC & Refresh IPv4 to take effect<br />
  <br />
-<img src="https://i.imgur.com/uLYhb7S.png" height="80%" width="80%" alt="add users"/>
+<img src="https://i.postimg.cc/d0KzLyWC/dhcp-scope-config-done.png" height="80%" width="80%" alt="set up DHCP"/>
 <br /> 
-  <br />
-Active directory users are created
-  <br/>
+<br />
+<u>Step 5 - Run a Powershell Script</u><br />
+<br><i>I used this to add 1000 generated users for the Active Directory</i><br />
+<br><i>Open Powershell as an admin and enable the execution policy with the command ‘Set-ExecutionPolicy Unrestricted”</i><br />
+<br><i>To navigate to the folder with the script, mine is on the Desktop </i><br />
+ <br><i>cd C:\user\username\Desktop\filename</i><br />
+
+<br>Then locate the txt file with the name.txt by typing ls<br />
+
+<br>Then run the script<br />
  <br />
-<img src="https://i.imgur.com/xPRysyJ.png" height="80%" width="80%" alt="created user"/>
+<img src="https://i.postimg.cc/wj5w4bVt/Run-Powershell.png" height="80%" width="80%" alt="run script"/>
 <br /> 
 <br />
-Create a second VM for our Windows 10 client (Client 1), its network adapter is set to connect to the internal network
+<u>Step 6</u> - Install & Window 10 Client on the VM & Connect to the Domain Controller<br />
+<br />Run the installation as usual<br />
+<br />Confirm network connectivity by running <i>ipconfig & ping</i><br />
   <br/>
-<img src="https://i.imgur.com/GfwHrGN.png" height="80%" width="80%" alt="create second vm"/>
+<img src="https://i.postimg.cc/vmc38Hyn/Test-connectivity.png" height="80%" width="80%" alt="test connectivity"/>
 <br />
 <br />
-While testing network connectivity, I realized that I forgot to add the DC router’s IP address to Client1’s DHCP configuration. As a result, there was no default gateway. Let’s fix that
+Rename the PC through “Rename Advanced” and simultaneously join the domain controller
+<br/>
+<img src="https://i.postimg.cc/0Q7GrzBz/Change-client-PC-name-join-DC.png" height="80%" width="80%" alt="join dc"/>
+<br />
+The first user has successfully joined the Active Directory Domain<br />
+<br>For further testing, I used one of the random names generated to join the Active Directory for the first time <br />
   <br/>
-<img src="https://i.imgur.com/qzwW3gG.png" height="80%" width="80%" alt="network connectivity"/>
+By running the command <i>whoamI</i>, kmarden has successfully joined mydomain.com
+<img src="https://i.postimg.cc/9Mq29hdR/Random-user-whoami.png" height="80%" width="80%" alt="whoami"/>
 <br />
-I rectified the issue and am now using the ping command to confirm that everything works 
-  <br/>
-<img src="https://i.imgur.com/buJcmCT.png" height="80%" width="80%" alt="rectified network issue"/>
-<br />
+
+
   <img src="https://i.imgur.com/48lvxGs.png" height="80%" width="80%" alt="network issue rectified"/>
 <br />
  Connect Client1 to the Domain
