@@ -24,23 +24,27 @@ I used the Oracle Virtual Box to power 2 separate virtual machines
 <br />
 <br />
 I have installed both VMs beforehand. Configure the NICs on the DC virtual machine <br />
-- NIC 1 - NAT (this is the route to the internet)
-- NIC 2 - INTERNAL (this connects to the internal network)
- <br/>
+<br> - NIC 1 - NAT (this is the route to the internet)<br />
+<br> - NIC 2 - INTERNAL (this connects to the internal network)<br />
 <img src="https://i.imgur.com/JlQMoa9.png" height="80%" width="80%" alt="network adapters"/>
 <br />
 <br />
 Step 1 - Differentiate between the Network Adapters (network icon on the bottom screen - Ethernet settings - status) <br />
-- Adapter 1 with the APIPA - I renamed it *Internet*
-- Adapter 2 with IP address 10.0.2.15 - I renamed it *INTERNET*
+<br> - Adapter 1 with the APIPA - I renamed it *Internet* <br />
+<br> - Adapter 2 with IP address 10.0.2.15 - I renamed it *INTERNET* <br />
 <br/>
 <img src="https://i.postimg.cc/qqG0QGz2/Adpater-names.png" height="80%" width="80%" alt="install srv2019"/>
 <br />
 <br />
 <p align="center">
-  I replaced the APIPA address 169.254.17.146 with the following scope, for the internal network
-- <b><i>IP address of 172.16.0.1 / Subnet mask 255.255.255.0 / Default Gateway (empty) / DNS - 127.0.0.1 </b></i>   <br/>
-<img src="https://i.postimg.cc/ncwTBDQh/Config-Internal-network.png" height="80%" width="80%" alt="Replaces APIPA"/>
+<br> Assign IP address configuration to the ‘Internal’ adapter<br/>
+<br><i>IP - 172.16.0.1</i><br />
+<br><i>Subnet mask - 255.255.255.0</i><br />
+<br><i>Default gateway - 0</i><br />
+<br><I> DNS - 172.16.0.1</i><br />
+
+<br>Alternatively, the loopback address 127.0.0.1 can be assigned to DNS but I used the IP address instead<br />
+<img src="https://i.postimg.cc/zXCwj7WX/Adapter-configuration.png" height="80%" width="80%" alt="Replaces APIPA"/>
 <br />
 <br />
 First, install and configure Active Directory Domain Services, and then create a dedicated admin account 
