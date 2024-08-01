@@ -19,20 +19,22 @@ I used the Oracle Virtual Box to power 2 separate virtual machines
 <h2>Project walk-through</h2>
 
 <p align="center">
-<br> We aim to simulate this network infrastructure <br/>
-<img src="https://i.imgur.com/2fyEvRb.png" height="80%" width="80%" alt="Network infrastructure diagram"/>
+<br> Overview of network infrastructure <br/>
+<img src="https://i.postimg.cc/rwRnMxRB/Network-Infrastructure.png" height="80%" width="80%" alt="Network infrastructure diagram"/>
 <br />
 <br />
-Create a Virtual Machine (VM) for Domain Controller  <br/>
-<img src="https://i.imgur.com/PMcLnnq.png" height="80%" width="80%" alt="Create VM"/>
-<br />
-<br />
-Configure network adapters 1 and 2 to use NAT (Network Address Translation) & Internal, respectively <br/>
+I have installed both VMs beforehand. Configure the NICs on the DC virtual machine <br />
+- NIC 1 - NAT (this is the route to the internet)
+- NIC 2 - INTERNAL (this connects to the internal network)
+ <br/>
 <img src="https://i.imgur.com/JlQMoa9.png" height="80%" width="80%" alt="network adapters"/>
 <br />
 <br />
-Mount & Install Windows Server 2019 on the Domain Controller's VM <br/>
-<img src="https://i.imgur.com/gs9kDks.png" height="80%" width="80%" alt="install srv2019"/>
+Step 1 - Differentiate between the Network Adapters (network icon on the bottom screen - Ethernet settings - status) <br />
+- Adapter 1 with the APIPA - I renamed it *Internet*
+- Adapter 2 with IP address 10.0.2.15 - I renamed it *INTERNET*
+<br/>
+<img src="https://i.postimg.cc/qqG0QGz2/Adpater-names.png" height="80%" width="80%" alt="install srv2019"/>
 <br />
 <br />
 <p align="center">
